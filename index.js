@@ -9,7 +9,13 @@ function EventsAsPromised () {
 	EventEmitter.apply(this);
 }
 util.inherits(EventsAsPromised, EventEmitter);
+Object.keys(EventEmitter.prototype).forEach(function (key) {
+	if (key != "emit") {
+		EventsAsPromised.prototype[key] = EventEmitter.prototype[key];
+	}
+});
 
+console.dir(EventsAsPromised.prototype);
 EventsAsPromised.prototype.emit = function (event) {
 
 	var args = slice.call(arguments, 1);
