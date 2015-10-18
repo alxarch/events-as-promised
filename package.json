@@ -1,6 +1,6 @@
 {
   "name": "events-as-promised",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Events and promises",
   "main": "index.js",
   "scripts": {

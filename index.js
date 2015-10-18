@@ -15,7 +15,6 @@ Object.keys(EventEmitter.prototype).forEach(function (key) {
 	}
 });
 
-console.dir(EventsAsPromised.prototype);
 EventsAsPromised.prototype.emit = function (event) {
 	var that = this;
 	var args = slice.call(arguments, 1);
