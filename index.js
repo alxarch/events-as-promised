@@ -25,4 +25,6 @@ EventsAsPromised.prototype.emit = function (event) {
 	}, P.resolve(null));
 }
 
+EventsAsPromised.EventEmitter = EventsAsPromised;
+
 module.exports = EventsAsPromised;
