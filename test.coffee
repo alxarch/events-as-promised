@@ -63,3 +63,7 @@ describe "Events", ->
 			assert error is reason
 			assert listener_1 is yes
 			assert listener_2 is yes
+
+	it "Calls back listeners with correct `this`", ->
+		events = new EventEmitter()
+		events.on "test", -> assert @ is events

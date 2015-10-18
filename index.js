@@ -17,12 +17,12 @@ Object.keys(EventEmitter.prototype).forEach(function (key) {
 
 console.dir(EventsAsPromised.prototype);
 EventsAsPromised.prototype.emit = function (event) {
-
+	var that = this;
 	var args = slice.call(arguments, 1);
 	return this.listeners(event).reduce(function (prev, listener) {
 		return prev.then(function () {
 			try {
-				return P.resolve(listener.apply(null, args));
+				return P.resolve(listener.apply(that, args));
 			}
 			catch (err) {
 				return P.reject(err)
